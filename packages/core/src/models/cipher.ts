@@ -1,4 +1,4 @@
 export type Cipher = {
-    cipherKey: Buffer
-    hashingSalt: Buffer
-}
+    cipherKey: Buffer;
+    hashingSalt: Buffer;
+};

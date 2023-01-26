@@ -1,5 +1,5 @@
 export interface NetrcEntry {
-    host: string
-    login: string
-    password: string
+    host: string;
+    login: string;
+    password: string;
 }
