@@ -1,17 +1,19 @@
-`u4ic-test which`
-=============
+# `u4ic-test which`
 
-show which plugin a command is in
+Show which plugin a command is in.
 
-* [`u4ic-test which COMMAND`](#u4ic-test-which-command)
+-   [`u4ic-test which`](#u4ic-test-which)
 
-## `u4ic-test which COMMAND`
+## `u4ic-test which`
 
-show which plugin a command is in
+Show which plugin a command is in.
 
 ```
 USAGE
-  $ u4ic-test which COMMAND
+  $ u4ic-test which
+
+DESCRIPTION
+  Show which plugin a command is in.
 ```
 
-_See code: [@oclif/plugin-which](https://github.com/oclif/plugin-which/blob/v1.0.3/src/commands/which.ts)_
+_See code: [@oclif/plugin-which](https://github.com/oclif/plugin-which/blob/v2.1.0/src/commands/which.ts)_

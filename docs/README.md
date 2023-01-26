@@ -1,27 +1,27 @@
-U4IC Turbine SDK
-============
+# U4IC Turbine SDK
 
 [![Version](https://img.shields.io/npm/v/@u4ic-test/turbine-sdk)](https://npmjs.org/package/@u4ic-test/turbine-sdk)
 [![Downloads/week](https://img.shields.io/npm/dw/@u4ic-test/turbine-sdk)](https://npmjs.org/package/@u4ic-test/turbine-sdk)
 [![License](https://img.shields.io/npm/l/@u4ic-test/turbine-sdk)](https://github.com/youngcm2/oclif-test/blob/main/packages/cli/package.json)
 
 <!-- toc -->
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Commands](#commands)
+
+-   [Requirements](#requirements)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Commands](#commands)
 
 <!-- tocstop -->
 
 # Requirements
 
-  * Docker Desktop
-  * Docker registry
+-   Docker Desktop
+-   Docker registry
     ```
       docker run -d -p 5000:5000 --name registry registry:2
     ```
-  * nvm - (https://github.com/nvm-sh/nvm#installing-and-updating)
-  * Node >= 16.13.0  
+-   nvm - (https://github.com/nvm-sh/nvm#installing-and-updating)
+-   Node >= 16.13.0
 
 # Installation
 
@@ -30,7 +30,9 @@ npm install -g @u4ic-test/turbine-sdk@latest
 ```
 
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @u4ic-test/turbine-sdk
 $ u4ic-test COMMAND
@@ -42,32 +44,36 @@ USAGE
   $ u4ic-test COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`u4ic-test asset add`](#u4ic-test-asset-add)
-* [`u4ic-test autocomplete [SHELL]`](#u4ic-test-autocomplete-shell)
-* [`u4ic-test commands`](#u4ic-test-commands)
-* [`u4ic-test connector save`](#u4ic-test-connector-save)
-* [`u4ic-test connector sign`](#u4ic-test-connector-sign)
-* [`u4ic-test connector update`](#u4ic-test-connector-update)
-* [`u4ic-test connector validate`](#u4ic-test-connector-validate)
-* [`u4ic-test help [COMMAND]`](#u4ic-test-help-command)
-* [`u4ic-test plugins`](#u4ic-test-plugins)
-* [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin)
-* [`u4ic-test plugins:inspect PLUGIN...`](#u4ic-test-pluginsinspect-plugin)
-* [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin-1)
-* [`u4ic-test plugins:link PLUGIN`](#u4ic-test-pluginslink-plugin)
-* [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin)
-* [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-1)
-* [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-2)
-* [`u4ic-test plugins update`](#u4ic-test-plugins-update)
-* [`u4ic-test turbine connector keys generate`](#u4ic-test-turbine-connector-keys-generate)
-* [`u4ic-test turbine connector keys list`](#u4ic-test-turbine-connector-keys-list)
-* [`u4ic-test turbine connector push`](#u4ic-test-turbine-connector-push)
-* [`u4ic-test turbine login`](#u4ic-test-turbine-login)
-* [`u4ic-test version`](#u4ic-test-version)
-* [`u4ic-test which`](#u4ic-test-which)
+
+-   [`u4ic-test asset add`](#u4ic-test-asset-add)
+-   [`u4ic-test autocomplete [SHELL]`](#u4ic-test-autocomplete-shell)
+-   [`u4ic-test commands`](#u4ic-test-commands)
+-   [`u4ic-test connector save`](#u4ic-test-connector-save)
+-   [`u4ic-test connector sign`](#u4ic-test-connector-sign)
+-   [`u4ic-test connector update`](#u4ic-test-connector-update)
+-   [`u4ic-test connector validate`](#u4ic-test-connector-validate)
+-   [`u4ic-test help [COMMAND]`](#u4ic-test-help-command)
+-   [`u4ic-test plugins`](#u4ic-test-plugins)
+-   [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin)
+-   [`u4ic-test plugins:inspect PLUGIN...`](#u4ic-test-pluginsinspect-plugin)
+-   [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin-1)
+-   [`u4ic-test plugins:link PLUGIN`](#u4ic-test-pluginslink-plugin)
+-   [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin)
+-   [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-1)
+-   [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-2)
+-   [`u4ic-test plugins update`](#u4ic-test-plugins-update)
+-   [`u4ic-test turbine connector keys generate`](#u4ic-test-turbine-connector-keys-generate)
+-   [`u4ic-test turbine connector keys list`](#u4ic-test-turbine-connector-keys-list)
+-   [`u4ic-test turbine connector push`](#u4ic-test-turbine-connector-push)
+-   [`u4ic-test turbine login`](#u4ic-test-turbine-login)
+-   [`u4ic-test version`](#u4ic-test-version)
+-   [`u4ic-test which`](#u4ic-test-which)
 
 ## `u4ic-test asset add`
 
@@ -298,7 +304,7 @@ ALIASES
   $ u4ic-test plugins add
 
 EXAMPLES
-  $ u4ic-test plugins:install myplugin 
+  $ u4ic-test plugins:install myplugin
 
   $ u4ic-test plugins:install https://github.com/someuser/someplugin
 
@@ -358,7 +364,7 @@ ALIASES
   $ u4ic-test plugins add
 
 EXAMPLES
-  $ u4ic-test plugins:install myplugin 
+  $ u4ic-test plugins:install myplugin
 
   $ u4ic-test plugins:install https://github.com/someuser/someplugin
 
@@ -572,19 +578,17 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-which](https://github.com/oclif/plugin-which/blob/v2.1.0/src/commands/which.ts)_
+
 <!-- commandsstop -->
 
-Quickstart
-==========
+# Quickstart
 
 See [Quickstart](./quickstart.md)
 
-Contributing
-==========
+# Contributing
 
 See [Contributing](./contributing.md)
 
-Troubleshooting
-==========
+# Troubleshooting
 
 See [Troubleshooting Guide](./troubleshooting.md)
