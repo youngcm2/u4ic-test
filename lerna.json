@@ -1,0 +1,21 @@
+{
+  "npmClient": "yarn",
+  "useNx": true,
+  "packages": [
+    "packages/*"
+  ],
+  "version": "2.6.1",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "verifyAccess": false,
+      "graphType": "all"
+    },
+    "version": {
+      "allowBranch": [
+        "main"
+      ]
+    }
+  }
+}

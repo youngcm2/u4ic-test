@@ -1,0 +1,48 @@
+name: "ci"
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - "release-please-**"
+      - "main"
+
+permissions:
+  contents: read # for checkout
+  pull-requests: read  # for comments
+
+jobs:
+  build:
+    name: build
+    runs-on: 'ubuntu-latest'
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Commit Linter
+        uses: wagoid/commitlint-github-action@v5.0.2
+
+      - name: setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: "https://registry.npmjs.org"
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: install
+        run: yarn bootstrap
+
+      - run: npx nx workspace-lint
+
+      - name: build all
+        run: yarn build:all
+
+      - name: lint all
+        run: yarn lint:all
+
+      - name: test all
+        run: yarn test:all

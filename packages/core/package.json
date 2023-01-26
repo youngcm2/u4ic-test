@@ -1,0 +1,43 @@
+{
+  "author": "U4IC",
+  "bugs": {
+    "url": "https://github.com/youngcm2/oclif-test/issues"
+  },
+  "dependencies": {
+    "@oclif/core": "1.16.4",
+    "execa": "5.1.1",
+    "fs-extra": "10.0.1",
+    "git-credential-node": "1.1.0",
+    "netrc-parser": "3.1.6",
+    "npmlog": "6.0.1"
+  },
+  "description": "Core library for u4ic-test",
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "node": ">=16.13.0"
+  },
+  "files": [
+    "lib",
+    "/yarn.lock"
+  ],
+  "homepage": "https://github.com/youngcm2/oclif-test#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "name": "@u4ic-test/core",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngcm2/oclif-test.git"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "types": "lib/index.d.ts",
+  "version": "1.0.0"
+}

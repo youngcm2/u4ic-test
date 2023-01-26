@@ -1,0 +1,7 @@
+# All code is owned by the surf team
+# All signoff happens by QA
+* @u4ic-test/devex
+
+# All documentation is owned by tech-pubs
+
+docs/*.md @u4ic-test/tech-writers

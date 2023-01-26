@@ -1,0 +1,55 @@
+name: canary
+
+on:
+  push:
+    branches:
+      - release-please-*
+    paths:
+      - "CHANGELOG.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write # for checkout and tag
+  actions: write # updating envs
+  pull-requests: write # for comments
+  packages: write # for publish
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Commit Linter
+        uses: wagoid/commitlint-github-action@v5.0.2
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: "https://registry.npmjs.org"
+          token: ${{ secrets.NPM_PUSH_TOKEN }}
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: bootstrap
+        run: yarn bootstrap
+
+      - name: build all
+        run: yarn build:all
+
+      - name: lint all
+        run: yarn lint:all
+
+      - name: test all
+        run: yarn test:all
+
+      - name: publish canary
+        run: |
+          yarn run release:canary
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUSH_TOKEN }}
