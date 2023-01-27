@@ -71,10 +71,9 @@
         "url": "git+https://github.com/youngcm2/oclif-test.git"
     },
     "scripts": {
-        "build": "rm -rf lib && tsc && yarn copy-files",
+        "build": "rm -rf lib && tsc",
         "postbuild": "oclif manifest && yarn docs",
         "lint": "eslint . --ext .ts --config .eslintrc",
-        "copy-files": "recursive-copy **/templates/ lib/templates",
         "postpack": "shx rm -f oclif.manifest.json",
         "prepack": "yarn build && oclif manifest && oclif readme",
         "docs": "oclif readme",
