@@ -87,7 +87,7 @@
         "versionup:minor": "lerna version minor --conventional-commits --no-git-tag-version --force-publish='*' --no-push",
         "versionup:patch": "lerna version patch --conventional-commits --no-git-tag-version --force-publish='*' --no-push"
     },
-    "version": "2.6.0",
+    "version": "2.6.1",
     "workspaces": {
         "packages": [
             "packages/*"
