@@ -1,8 +1,9 @@
-# `u4ic-test autocomplete`
+`u4ic-test autocomplete`
+========================
 
 display autocomplete installation instructions
 
--   [`u4ic-test autocomplete [SHELL]`](#u4ic-test-autocomplete-shell)
+* [`u4ic-test autocomplete [SHELL]`](#u4ic-test-autocomplete-shell)
 
 ## `u4ic-test autocomplete [SHELL]`
 

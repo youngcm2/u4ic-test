@@ -1,8 +1,9 @@
-# `u4ic-test commands`
+`u4ic-test commands`
+====================
 
 list all the commands
 
--   [`u4ic-test commands`](#u4ic-test-commands)
+* [`u4ic-test commands`](#u4ic-test-commands)
 
 ## `u4ic-test commands`
 

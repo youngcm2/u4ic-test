@@ -1,8 +1,9 @@
-# `u4ic-test which`
+`u4ic-test which`
+=================
 
 Show which plugin a command is in.
 
--   [`u4ic-test which`](#u4ic-test-which)
+* [`u4ic-test which`](#u4ic-test-which)
 
 ## `u4ic-test which`
 

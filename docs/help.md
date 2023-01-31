@@ -1,8 +1,9 @@
-# `u4ic-test help`
+`u4ic-test help`
+================
 
 Display help for u4ic-test.
 
--   [`u4ic-test help [COMMAND]`](#u4ic-test-help-command)
+* [`u4ic-test help [COMMAND]`](#u4ic-test-help-command)
 
 ## `u4ic-test help [COMMAND]`
 

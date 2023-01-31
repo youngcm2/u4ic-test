@@ -1,16 +1,17 @@
-# `u4ic-test plugins`
+`u4ic-test plugins`
+===================
 
 List installed plugins.
 
--   [`u4ic-test plugins`](#u4ic-test-plugins)
--   [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin)
--   [`u4ic-test plugins:inspect PLUGIN...`](#u4ic-test-pluginsinspect-plugin)
--   [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin-1)
--   [`u4ic-test plugins:link PLUGIN`](#u4ic-test-pluginslink-plugin)
--   [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin)
--   [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-1)
--   [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-2)
--   [`u4ic-test plugins update`](#u4ic-test-plugins-update)
+* [`u4ic-test plugins`](#u4ic-test-plugins)
+* [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin)
+* [`u4ic-test plugins:inspect PLUGIN...`](#u4ic-test-pluginsinspect-plugin)
+* [`u4ic-test plugins:install PLUGIN...`](#u4ic-test-pluginsinstall-plugin-1)
+* [`u4ic-test plugins:link PLUGIN`](#u4ic-test-pluginslink-plugin)
+* [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin)
+* [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-1)
+* [`u4ic-test plugins:uninstall PLUGIN...`](#u4ic-test-pluginsuninstall-plugin-2)
+* [`u4ic-test plugins update`](#u4ic-test-plugins-update)
 
 ## `u4ic-test plugins`
 
@@ -63,7 +64,7 @@ ALIASES
   $ u4ic-test plugins add
 
 EXAMPLES
-  $ u4ic-test plugins:install myplugin
+  $ u4ic-test plugins:install myplugin 
 
   $ u4ic-test plugins:install https://github.com/someuser/someplugin
 
@@ -123,7 +124,7 @@ ALIASES
   $ u4ic-test plugins add
 
 EXAMPLES
-  $ u4ic-test plugins:install myplugin
+  $ u4ic-test plugins:install myplugin 
 
   $ u4ic-test plugins:install https://github.com/someuser/someplugin
 
