@@ -7,15 +7,14 @@
 [![License](https://img.shields.io/npm/l/@u4ic-test/plugin-task)](https://github.com/youngcm2/oclif-test/blob/main/packages/cli/package.json)
 
 <!-- toc -->
-
--   [Usage](#usage)
--   [Commands](#commands)
+* [Integration Task CLI Plugin](#integration-task-cli-plugin)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @u4ic-test/plugin-connector
 $ u4ic-test-connector COMMAND
@@ -27,22 +26,20 @@ USAGE
   $ u4ic-test-connector COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
+* [`u4ic-test-connector action:cwd`](#u4ic-test-connector-actioncwd)
 
--   [`u4ic-test-connector action:test`](#u4ic-test-connector-actiontest)
-
-## `u4ic-test-connector action:test`
+## `u4ic-test-connector action:cwd`
 
 Update a connector action.
 
 ```
 USAGE
-  $ u4ic-test-connector action:test [-d <value>] [-h]
+  $ u4ic-test-connector action:cwd [-d <value>] [-h]
 
 FLAGS
   -d, --directory=<value>  [default: ./] Root directory of the repository.
@@ -52,6 +49,5 @@ DESCRIPTION
   Update a connector action.
 ```
 
-_See code: [lib/commands/action/test.js](https://github.com/youngcm2/oclif-test/blob/v2.6.1/lib/commands/action/test.js)_
-
+_See code: [lib/commands/action/cwd.js](https://github.com/youngcm2/oclif-test/blob/v2.6.1/lib/commands/action/cwd.js)_
 <!-- commandsstop -->
