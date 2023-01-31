@@ -7,6 +7,7 @@
             "bump-patch-for-minor-pre-major": false,
             "draft": false,
             "prerelease": false,
+            "always-link-local": true,
             "include-v-in-tag": false,
             "extra-files": [
                 {
