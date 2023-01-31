@@ -39,40 +39,44 @@ jobs:
                   command: manifest
                   config-file: .github/release-please-config.json
                   manifest-file: .github/release-please-manifest.json
-    publish:
+
+    main:
+        name: Main Job
         if: ${{ needs.setup.outputs.release_created == 'true' || inputs.publish }}
-        runs-on: "ubuntu-latest"
         needs:
             - setup
-        steps:
-            - uses: actions/checkout@v3
-              with:
-                  fetch-depth: 0
+        uses: ./.github/workflows/node-job.yml
+        secrets: inherit
+        with:
+            name: "Install Dependencies"
+            command: ""
 
-            - name: Setup node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  registry-url: "https://registry.npmjs.org"
-                  token: ${{ secrets.NPM_PUSH_TOKEN }}
+    parallel-jobs:
+        name: Jobs
+        needs:
+            - main
+        strategy:
+            matrix:
+                config:
+                    -   command: 'yarn lint:all'
+                        name: Lint
+                    -   command: 'yarn test:all --ci --coverage'
+                        name: Test
 
-            - uses: nrwl/nx-set-shas@v3
+        uses: ./.github/workflows/node-job.yml
+        secrets: inherit
+        with:
+            name: "${{ matrix.config.name }}"
+            command: ${{ matrix.config.command }}
 
-            - name: bootstrap
-              run: yarn bootstrap
+    publish:
+        name: Publish
+        needs:
+            - 'main'
+            - 'parallel-jobs'
+        uses: ./.github/workflows/node-job.yml
+        secrets: inherit
+        with:
+            name: "Publish"
+            command: 'yarn release'
 
-            - name: build all
-              run: yarn build:all
-
-            - name: lint all
-              run: yarn lint:all
-
-            - name: test all
-              run: yarn test:all
-
-            - name: publish release
-              run: |
-                  yarn run release
-              env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_PUSH_TOKEN }}

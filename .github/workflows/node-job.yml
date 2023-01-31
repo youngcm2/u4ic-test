@@ -1,0 +1,82 @@
+name: Jobs
+
+on:
+    workflow_call:
+        inputs:
+            name:
+                required: true
+                type: string
+            command:
+                required: true
+                type: string
+            runs-on:
+                required: false
+                type: string
+                default: ubuntu-latest
+
+jobs:
+    Run:
+        runs-on: ${{ inputs.runs-on }}
+        name: Job ${{ inputs.name }}
+        steps:
+            -   uses: actions/checkout@v3
+                name: Checkout [Pull Request]
+                with:
+                    # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
+                    ref: ${{ github.event.pull_request.head.sha }}
+                    # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+                    fetch-depth: 0
+
+            -   name: Setup node
+                uses: actions/setup-node@v3
+                with:
+                    node-version: 16
+                    registry-url: "https://registry.npmjs.org"
+                    token: ${{ secrets.NPM_PUSH_TOKEN }}
+
+            -   name: Derive appropriate SHAs for base and head for `nx affected` commands
+                uses: nrwl/nx-set-shas@v3
+
+            -   name: Print node/npm/yarn versions
+                id: versions
+                run: |
+                    node_ver=$( node --version )
+                    yarn_ver=$( yarn --version || true )
+
+                    echo "Node: ${node_ver:1}"
+                    echo "NPM: $( npm --version )"
+                    if [[ $yarn_ver != '' ]]; then echo "Yarn: $yarn_ver"; fi
+
+                    echo "node_version=${node_ver:1}" >> $GITHUB_OUTPUT
+                    echo "yarn_version=${yarn_ver}" >> $GITHUB_OUTPUT
+
+            -   name: Get yarn cache directory path [yarn 1.x]
+                id: yarn-cache-dir-path
+                run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+            -   name: Use the node_modules cache if available [yarn 1.x]
+                uses: actions/cache@v3
+                with:
+                    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                    key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-
+
+            -  name: Install dependencies
+               run: |
+                   echo "Running yarn install --frozen-lockfile"
+                   yarn install --frozen-lockfile
+                   yarn lerna bootstrap
+               env:
+                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                   NODE_AUTH_TOKEN: ${{ secrets.NPM_PUSH_TOKEN }}
+
+            -   name: Run command [${{ inputs.name }}]
+                run: |
+                    echo "Running command..."
+                    ${{ inputs.command }}
+                env:
+                    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_PUSH_TOKEN }}
+
+

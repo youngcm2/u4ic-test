@@ -32,154 +32,41 @@ jobs:
               uses: wagoid/commitlint-github-action@v5.3.0
 
     main:
-        name: Nx Cloud - Main Job
-        runs-on: 'ubuntu-latest'
+        name: Main Job
         needs:
             - setup
-        steps:
-            -   uses: actions/checkout@v3
-                name: Checkout [Pull Request]
-                with:
-                    # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
-                    ref: ${{ github.event.pull_request.head.sha }}
-                    # We need to fetch all branches and commits so that Nx affected has a base to compare against.
-                    fetch-depth: 0
+        uses: ./.github/workflows/node-job.yml
+        secrets: inherit
+        with:
+            name: "Install Dependencies"
+            command: ""
 
-            -   name: Setup node
-                uses: actions/setup-node@v3
-                with:
-                    node-version: 16
-                    registry-url: "https://registry.npmjs.org"
-                    token: ${{ secrets.NPM_PUSH_TOKEN }}
-
-            -   name: Derive appropriate SHAs for base and head for `nx affected` commands
-                uses: nrwl/nx-set-shas@v3
-
-            -   name: Print node/npm/yarn versions
-                id: versions
-                run: |
-                    node_ver=$( node --version )
-                    yarn_ver=$( yarn --version || true )
-
-                    echo "Node: ${node_ver:1}"
-                    echo "NPM: $( npm --version )"
-                    if [[ $yarn_ver != '' ]]; then echo "Yarn: $yarn_ver"; fi
-
-                    echo "node_version=${node_ver:1}" >> $GITHUB_OUTPUT
-                    echo "yarn_version=${yarn_ver}" >> $GITHUB_OUTPUT
-
-            -   name: Get yarn cache directory path [yarn 1.x]
-                id: yarn-cache-dir-path
-                run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-            -   name: Use the node_modules cache if available [yarn 1.x]
-                uses: actions/cache@v3
-                with:
-                    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                    key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                    restore-keys: |
-                        ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-
-
-            -  name: Install dependencies
-               run: |
-                   echo "Running yarn install --frozen-lockfile"
-                   yarn install --frozen-lockfile
-                   yarn lerna bootstrap
-               env:
-                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                NODE_AUTH_TOKEN: ${{ secrets.NPM_PUSH_TOKEN }}
-
-    agents:
-        name: Agents
-        runs-on: 'ubuntu-latest'
+    parallel-jobs:
+        name: Jobs
         needs:
             - main
         strategy:
             matrix:
-                command: ['yarn lint:all', 'yarn test:all --ci --coverage']
-        steps:
-            -   uses: actions/checkout@v3
-                name: Checkout [Pull Request]
-                with:
-                    # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
-                    ref: ${{ github.event.pull_request.head.sha }}
-                    # We need to fetch all branches and commits so that Nx affected has a base to compare against.
-                    fetch-depth: 0
+                config:
+                    - command: 'yarn lint:all'
+                      name: Lint
+                    - command: 'yarn test:all --ci --coverage'
+                      name: Test
 
-            -   name: Setup node
-                uses: actions/setup-node@v3
-                with:
-                    node-version: 16
-                    registry-url: "https://registry.npmjs.org"
-                    token: ${{ secrets.NPM_PUSH_TOKEN }}
+        uses: ./.github/workflows/node-job.yml
+        secrets: inherit
+        with:
+            name: "${{ matrix.config.name }}"
+            command: ${{ matrix.config.command }}
 
-            -   name: Get yarn cache directory path [yarn 1.x]
-                id: yarn-cache-dir-path
-                run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-            -   name: Use the node_modules cache if available [yarn 1.x]
-                uses: actions/cache@v3
-                with:
-                    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                    key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                    restore-keys: |
-                        ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-
-
-            -  name: Install dependencies
-               run: |
-                    echo "Running yarn install --frozen-lockfile"
-                    yarn install --frozen-lockfile
-
-            - name: Run command [${{ matrix.command }}]
-              run: |
-                  echo "Running command..."
-                  ${{ matrix.command }}
-              env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_PUSH_TOKEN }}
     publish:
         name: Publish
-        runs-on: 'ubuntu-latest'
         needs:
-            - agents
-        steps:
-            -   uses: actions/checkout@v3
-                name: Checkout [Pull Request]
-                with:
-                    # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
-                    ref: ${{ github.event.pull_request.head.sha }}
-                    # We need to fetch all branches and commits so that Nx affected has a base to compare against.
-                    fetch-depth: 0
-
-            -   name: Setup node
-                uses: actions/setup-node@v3
-                with:
-                    node-version: 16
-                    registry-url: "https://registry.npmjs.org"
-                    token: ${{ secrets.NPM_PUSH_TOKEN }}
-
-            -   name: Get yarn cache directory path [yarn 1.x]
-                id: yarn-cache-dir-path
-                run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-            -   name: Use the node_modules cache if available [yarn 1.x]
-                uses: actions/cache@v3
-                with:
-                    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                    key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                    restore-keys: |
-                        ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-yarn-
-
-            -   name: Install dependencies
-                run: |
-                    echo "Running yarn install --frozen-lockfile"
-                    yarn install --frozen-lockfile
-
-            -   name: Publish [Canary]
-                run: |
-                    yarn release:canary
-                env:
-                    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_PUSH_TOKEN }}
-
+            - 'main'
+            - 'parallel-jobs'
+        uses: ./.github/workflows/node-job.yml
+        secrets: inherit
+        with:
+            name: "Publish [Canary]"
+            command: 'yarn release:canary'
 
