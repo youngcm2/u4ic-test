@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.6.0](https://github.com/youngcm2/u4ic-test/compare/oclif-test-v2.5.1...oclif-test-2.6.0) (2023-01-31)
+
+
+### Features
+
+* change 1 ([87ed873](https://github.com/youngcm2/u4ic-test/commit/87ed873cf7ced1c703301d21516732257f85e001))
+* change 2 ([ca37f19](https://github.com/youngcm2/u4ic-test/commit/ca37f19ed0de61a749b7c6a438dd195d10146e61))
+
+
+### Bug Fixes
+
+* added canary ([c6968cf](https://github.com/youngcm2/u4ic-test/commit/c6968cf727c5b9473e665b34f4020894e27d4e8d))
+* added workflow ([e483cf8](https://github.com/youngcm2/u4ic-test/commit/e483cf8dd730ed662de937b4f8c34c679a93d8a9))
+* updated workflow ([669d73d](https://github.com/youngcm2/u4ic-test/commit/669d73d79285fa812b0d7d5984eba191ad2b393b))
+
 ## [2.2.0](https://github.com/youngcm2/release-please-testing/compare/v2.1.0...2.2.0) (2022-12-27)
 
 ### Features

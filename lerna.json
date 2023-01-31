@@ -1,8 +1,10 @@
 {
     "npmClient": "yarn",
     "useNx": true,
-    "packages": ["packages/*"],
-    "version": "2.6.1",
+    "packages": [
+        "packages/*"
+    ],
+    "version": "2.6.0",
     "useWorkspaces": true,
     "command": {
         "publish": {
@@ -11,7 +13,9 @@
             "graphType": "all"
         },
         "version": {
-            "allowBranch": ["main"]
+            "allowBranch": [
+                "main"
+            ]
         }
     }
 }
