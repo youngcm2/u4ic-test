@@ -58,10 +58,10 @@ jobs:
         strategy:
             matrix:
                 config:
-                    -   command: 'yarn lint:all'
-                        name: Lint
-                    -   command: 'yarn test:all --ci --coverage'
-                        name: Test
+                    -   name: Lint
+                        command: 'yarn lint:all'
+                    -   name: Test
+                        command: 'yarn test:all --ci --coverage'
 
         uses: ./.github/workflows/node-job.yml
         secrets: inherit
