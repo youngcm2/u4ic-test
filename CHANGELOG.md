@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.2](https://github.com/youngcm2/u4ic-test/compare/oclif-test-2.6.1...oclif-test-2.6.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* updated docs 2 ([47c7069](https://github.com/youngcm2/u4ic-test/commit/47c7069086b9c29e817bcf81546c1c546474c2f4))
+
 ## [2.6.1](https://github.com/youngcm2/u4ic-test/compare/oclif-test-2.6.0...oclif-test-2.6.1) (2023-01-31)
 
 
