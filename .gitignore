@@ -19,3 +19,7 @@ package-lock.json
 *.tar.gz
 
 coverage/
+
+!jest.preset.js
+!jest.config.js
+!commitlint.config.js

@@ -1,32 +1,24 @@
 {
-    "changelog-path": "CHANGELOG.md",
-    "release-type": "node",
-    "bump-minor-pre-major": false,
-    "bump-patch-for-minor-pre-major": false,
-    "draft": false,
-    "prerelease": false,
-    "include-v-in-tag": false,
-    "plugins": [{
-        "type": "node-workspace",
-        "updateAllPackages":  true
-    }],
-    "always-link-local": true,
-    "extra-files": [{
-        "type": "json",
-        "path": "**/lerna.json",
-        "glob": true,
-        "jsonpath": "version"
-    }],
     "packages": {
-        ".": {},
-        "packages/core": {
-
-        },
-        "packages/plugin-connector": {
-
-        },
-        "packages/cli": {
-
+        ".": {
+            "changelog-path": "CHANGELOG.md",
+            "release-type": "node",
+            "bump-minor-pre-major": false,
+            "bump-patch-for-minor-pre-major": false,
+            "draft": false,
+            "prerelease": false,
+            "include-v-in-tag": false,
+            "plugins": [{
+                "type": "node-workspace",
+                "updateAllPackages":  true
+            }],
+            "always-link-local": true,
+            "extra-files": [{
+                "type": "json",
+                "path": "**/lerna.json",
+                "glob": true,
+                "jsonpath": "version"
+            }]
         }
     }
 }
