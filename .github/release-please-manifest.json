@@ -1,5 +1,5 @@
 {
-    ".": "2.6.2",
+    ".": "2.6.3",
     "packages/core": "2.6.2",
     "packages/plugin-connector": "2.6.2",
     "packages/cli": "2.6.2"
