@@ -1,8 +1,9 @@
 {
-    "plugin": [{
+    "plugins": [{
         "type": "node-workspace",
         "updateAllPackages":  true
     }],
+    "always-link-local": true,
     "packages": {
         ".": {
             "changelog-path": "CHANGELOG.md",
@@ -11,7 +12,6 @@
             "bump-patch-for-minor-pre-major": false,
             "draft": false,
             "prerelease": false,
-            "always-link-local": true,
             "include-v-in-tag": false,
             "extra-files": [
                 {
