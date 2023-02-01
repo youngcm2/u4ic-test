@@ -61,6 +61,7 @@
         "bootstrap": "yarn && yarn prepare && lerna bootstrap && yarn dev:setup",
         "dev:setup": "nx run-many --target=dev:setup",
         "build:all": "nx run-many --target=build --parallel=4",
+        "build:docs": "nx run-many --target=build --parallel=4 && nx run-many --target=docs --parallel=4",
         "test:all": "nx run-many --target=test --all --parallel=6",
         "lint:all": "nx workspace-lint && yarn format",
         "affected:build": "nx affected:build",

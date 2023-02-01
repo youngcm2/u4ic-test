@@ -1,8 +1,8 @@
 # Swimlane Turbine SDK
 
-[![Version](https://img.shields.io/npm/v/@swimlane/turbine-sdk)](https://npmjs.org/package/@swimlane/turbine-sdk)
-[![Downloads/week](https://img.shields.io/npm/dw/@swimlane/turbine-sdk)](https://npmjs.org/package/@swimlane/turbine-sdk)
-[![License](https://img.shields.io/npm/l/@swimlane/turbine-sdk)](https://github.com/swimlane/turbine-sdk/blob/main/packages/cli/package.json)
+[![Version](https://img.shields.io/npm/v/@u4ic-test/oclif-test)](https://npmjs.org/package/@u4ic-test/oclif-test)
+[![Downloads/week](https://img.shields.io/npm/dw/@u4ic-test/oclif-test)](https://npmjs.org/package/@u4ic-test/oclif-test)
+[![License](https://img.shields.io/npm/l/@u4ic-test/oclif-test)](https://github.com/swimlane/turbine-sdk/blob/main/packages/cli/package.json)
 
 <!-- toc -->
 * [Swimlane Turbine SDK](#swimlane-turbine-sdk)
@@ -25,7 +25,7 @@
 # Installation
 
 ```shell
-npm install -g @swimlane/turbine-sdk@latest
+npm install -g @u4ic-test/oclif-test@latest
 ```
 
 # Usage

@@ -72,7 +72,7 @@
     },
     "scripts": {
         "build": "rm -rf lib && tsc",
-        "postbuild": "oclif manifest && yarn docs",
+        "postbuild": "oclif manifest",
         "lint": "eslint . --ext .ts --config .eslintrc",
         "postpack": "shx rm -f oclif.manifest.json",
         "prepack": "yarn build && oclif manifest && oclif readme",

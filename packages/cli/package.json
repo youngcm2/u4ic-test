@@ -88,7 +88,7 @@
         "lint": "eslint . --ext .ts --config .eslintrc",
         "build": "rm -rf lib && tsc",
         "test": "jest --passWithNoTests",
-        "postbuild": "oclif manifest . && yarn docs",
+        "postbuild": "oclif manifest .",
         "posttest": "yarn lint",
         "postpack": "shx rm -f oclif.manifest.json",
         "prepack": "yarn build && oclif manifest && oclif readme",
