@@ -11,12 +11,22 @@
         "updateAllPackages":  true
     }],
     "always-link-local": true,
-    "extra-files": [
-        {
-            "type": "json",
-            "path": "**/lerna.json",
-            "glob": true,
-            "jsonpath": "version"
+    "extra-files": [{
+        "type": "json",
+        "path": "**/lerna.json",
+        "glob": true,
+        "jsonpath": "version"
+    }],
+    "packages": {
+        ".": {},
+        "packages/core": {
+
+        },
+        "packages/plugin-connector": {
+
+        },
+        "packages/cli": {
+
         }
-    ]
+    }
 }
