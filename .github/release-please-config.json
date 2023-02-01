@@ -1,6 +1,7 @@
 {
     "packages": {
         ".": {
+            "path": "packages/cli",
             "changelog-path": "CHANGELOG.md",
             "release-type": "node",
             "bump-minor-pre-major": false,
