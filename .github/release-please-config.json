@@ -1,4 +1,8 @@
 {
+    "plugin": [{
+        "type": "node-workspace",
+        "updateAllPackages":  true
+    }],
     "packages": {
         ".": {
             "changelog-path": "CHANGELOG.md",
@@ -9,10 +13,6 @@
             "prerelease": false,
             "always-link-local": true,
             "include-v-in-tag": false,
-            "plugin": [{
-                "type": "node-workspace",
-                "updateAllPackages":  true
-            }],
             "extra-files": [
                 {
                     "type": "json",
