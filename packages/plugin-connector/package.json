@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "@oclif/core": "1.16.4",
-        "@u4ic-test/core": "2.7.0",
+        "@u4ic-test/core": "*",
         "fs-extra": "10.0.1",
         "handlebars": "4.7.7",
         "inquirer": "8.2.2",
