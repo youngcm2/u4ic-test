@@ -98,5 +98,5 @@
         "@u4ic-test/oclif-test": "2.7.0",
         "@u4ic-test/plugin-connector": "2.7.0"
     },
-    "version": "2.7.0"
+    "version": "2.8.0"
 }

@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.8.0](https://github.com/youngcm2/u4ic-test/compare/oclif-test-2.7.0...oclif-test-2.8.0) (2023-02-02)
+
+
+### Features
+
+* updated rp ([a627f86](https://github.com/youngcm2/u4ic-test/commit/a627f86a197b4cdd97cc07815275180d625bbdda))
+* updated rp 2 ([602f638](https://github.com/youngcm2/u4ic-test/commit/602f638ac96b2734d1f58a6261a5fa5f6c256104))
+* updated rp 3 ([61f8235](https://github.com/youngcm2/u4ic-test/commit/61f82355a8b7a9afa091d9d0621dcdb2d5d4c05f))
+* updated rp 4 ([e9b8cc7](https://github.com/youngcm2/u4ic-test/commit/e9b8cc7a90be3fcdfd3e8f30ec712f2bf7cee92b))
+
+
+### Bug Fixes
+
+* updated rp 1 ([8596543](https://github.com/youngcm2/u4ic-test/commit/859654308257747ab410d61b3d4ddc3176c2d899))
+* updated rp 2 ([78027a7](https://github.com/youngcm2/u4ic-test/commit/78027a7f4344e1b396f83d4183c1110e1e26cafb))
+
 ## [2.7.0](https://github.com/youngcm2/u4ic-test/compare/@u4ic-test/oclif-test-v2.6.2...@u4ic-test/oclif-test-2.7.0) (2023-02-01)
 
 
