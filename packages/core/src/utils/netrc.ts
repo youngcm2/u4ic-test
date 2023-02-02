@@ -24,6 +24,9 @@ export async function saveToken(entry: NetrcEntry): Promise<void> {
     await Netrc.save();
 }
 
+/*
+Foo Bar
+ */
 export async function getToken(host: string): Promise<NetrcEntry | null> {
     await Netrc.load();
     if (!Netrc.machines[host]) {
