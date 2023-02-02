@@ -7,28 +7,35 @@
     "draft": false,
     "prerelease": false,
     "include-v-in-tag": false,
-    "plugins": [{
-        "type": "node-workspace",
-        "updateAllPackages":  true
-    },{
-        "type": "sentence-case"
-    }],
-    "always-link-local": true,
-    "extra-files": [{
-        "type": "json",
-        "path": "**/lerna.json",
-        "glob": true,
-        "jsonpath": "version"
-    }],
-    "packages": {
-        ".": {
-            "component": "oclif-test"
+    "plugins": [
+        {
+            "type": "node-workspace",
+            "merge": true,
+            "updateAllPackages": true
         },
+        
+        {
+            "type": "sentence-case"
+        }
+    ],
+    "always-link-local": true,
+    "extra-files": [
+        {
+            "type": "json",
+            "path": "**/lerna.json",
+            "glob": true,
+            "jsonpath": "version"
+        }
+    ],
+    "packages": {
         "packages/cli": {
+            "component": "cli"
         },
         "packages/core": {
+            "component": "core"
         },
         "packages/plugin-connector": {
+            "component": "plugin-connector"
         }
     }
 }
