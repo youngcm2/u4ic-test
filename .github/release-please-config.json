@@ -11,14 +11,6 @@
         "type": "node-workspace",
         "updateAllPackages":  true
     },{
-        "type": "linked-versions",
-        "group-name": "oclif-test",
-        "components": [
-            "@u4ic-test/core",
-            "@u4ic-test/plugin-connector",
-            "@u4ic-test/oclif-test"
-        ]
-    },{
         "type": "sentence-case"
     }],
     "always-link-local": true,
