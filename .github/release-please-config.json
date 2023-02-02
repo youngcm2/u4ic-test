@@ -1,34 +1,35 @@
 {
-    "changelog-path": "CHANGELOG.md",
-    "release-type": "node",
-    "pull-request-title-pattern": "chore${scope}: release ${version}",
-    "bump-minor-pre-major": false,
-    "bump-patch-for-minor-pre-major": false,
-    "draft": false,
-    "prerelease": false,
-    "include-v-in-tag": false,
-    "plugins": [{
-        "type": "node-workspace",
-        "updateAllPackages":  true
-    },{
-        "type": "sentence-case"
-    }],
-    "always-link-local": true,
-    "extra-files": [{
-        "type": "json",
-        "path": "**/lerna.json",
-        "glob": true,
-        "jsonpath": "version"
-    }],
     "packages": {
         ".": {
-            "component": "oclif-test"
-        },
-        "packages/cli": {
-        },
-        "packages/core": {
-        },
-        "packages/plugin-connector": {
+            "changelog-path": "CHANGELOG.md",
+            "release-type": "node",
+            "pull-request-title-pattern": "chore${scope}: release ${version}",
+            "bump-minor-pre-major": false,
+            "bump-patch-for-minor-pre-major": false,
+            "draft": false,
+            "prerelease": false,
+            "include-v-in-tag": false,
+            "plugins": [{
+                "type": "node-workspace",
+                "updateAllPackages":  true
+            },{
+                "type": "linked-versions",
+                "group-name": "oclif-test",
+                "components": [
+                    "@u4ic-test/core",
+                    "@u4ic-test/plugin-connector",
+                    "@u4ic-test/oclif-test"
+                ]
+            },{
+                "type": "sentence-case"
+            }],
+            "always-link-local": true,
+            "extra-files": [{
+                "type": "json",
+                "path": "**/lerna.json",
+                "glob": true,
+                "jsonpath": "version"
+            }]
         }
     }
 }
