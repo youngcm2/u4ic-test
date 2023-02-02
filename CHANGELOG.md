@@ -13,6 +13,27 @@
 
 ### Bug Fixes
 
+* update gh pages ([cfb658f](https://github.com/youngcm2/u4ic-test/commit/cfb658fbf75fd1cf435a8dcad4f00972836a51d0))
+* updated ([9138c0b](https://github.com/youngcm2/u4ic-test/commit/9138c0bb13e26b9ca03d503f780893ef065118c6))
+* updated rp 1 ([8596543](https://github.com/youngcm2/u4ic-test/commit/859654308257747ab410d61b3d4ddc3176c2d899))
+* updated rp 2 ([ec222cf](https://github.com/youngcm2/u4ic-test/commit/ec222cf030abcd29909468399d220022d79b5690))
+* updated rp 3 ([a16f915](https://github.com/youngcm2/u4ic-test/commit/a16f915851c97e4dc245e8b00f0382fc81f2a8ba))
+* updated rp config ([6a4061c](https://github.com/youngcm2/u4ic-test/commit/6a4061ce190d9c3e45e8870a92498858b230f0d9))
+* updated rp config 1 ([d4ace66](https://github.com/youngcm2/u4ic-test/commit/d4ace66c2e39c5edd03197ada220cf531c0d3697))
+
+## [2.8.0](https://github.com/youngcm2/u4ic-test/compare/oclif-test-2.7.0...oclif-test-2.8.0) (2023-02-02)
+
+
+### Features
+
+* updated rp ([a627f86](https://github.com/youngcm2/u4ic-test/commit/a627f86a197b4cdd97cc07815275180d625bbdda))
+* updated rp 2 ([602f638](https://github.com/youngcm2/u4ic-test/commit/602f638ac96b2734d1f58a6261a5fa5f6c256104))
+* updated rp 3 ([61f8235](https://github.com/youngcm2/u4ic-test/commit/61f82355a8b7a9afa091d9d0621dcdb2d5d4c05f))
+* updated rp 4 ([e9b8cc7](https://github.com/youngcm2/u4ic-test/commit/e9b8cc7a90be3fcdfd3e8f30ec712f2bf7cee92b))
+
+
+### Bug Fixes
+
 * updated rp 1 ([8596543](https://github.com/youngcm2/u4ic-test/commit/859654308257747ab410d61b3d4ddc3176c2d899))
 * updated rp 2 ([ec222cf](https://github.com/youngcm2/u4ic-test/commit/ec222cf030abcd29909468399d220022d79b5690))
 * updated rp 3 ([a16f915](https://github.com/youngcm2/u4ic-test/commit/a16f915851c97e4dc245e8b00f0382fc81f2a8ba))

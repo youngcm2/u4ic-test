@@ -96,5 +96,5 @@
         "dev:setup": "npm link"
     },
     "types": "lib/index.d.ts",
-    "version": "2.7.0"
+    "version": "2.8.0"
 }
