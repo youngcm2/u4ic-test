@@ -1,5 +1,8 @@
 {
-    "plugins": ["node-workspace"],
+    "plugins": [{
+        "type": "node-workspace",
+        "updateAllPackages":  true
+    }],
     "packages": {
         ".": {
             "changelog-path": "CHANGELOG.md",
