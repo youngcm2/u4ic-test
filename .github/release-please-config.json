@@ -21,15 +21,6 @@
     "packages": {
         ".": {
             "component": "@u4ic-test/oclif-test"
-        },
-        "packages/core": {
-
-        },
-        "packages/plugin-connector": {
-
-        },
-        "packages/cli": {
-
         }
     }
 }
