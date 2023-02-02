@@ -17,6 +17,11 @@
                 "path": "**/lerna.json",
                 "glob": true,
                 "jsonpath": "version"
+            },{
+                "type": "json",
+                "path": "**/package.json",
+                "glob": true,
+                "jsonpath": "version"
             }]
         }
     }

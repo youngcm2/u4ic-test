@@ -13,6 +13,13 @@ on:
                 required: false
                 type: string
                 default: ubuntu-latest
+            ref:
+                description: >
+                    The branch, tag or SHA to checkout. When checking out the repository that
+                    triggered a workflow, this defaults to the reference or SHA for that
+                    event.  Otherwise, uses the default branch.
+                type: string
+
 
 jobs:
     Run:
@@ -20,10 +27,18 @@ jobs:
         name: Job ${{ inputs.name }}
         steps:
             -   uses: actions/checkout@v3
-                name: Checkout [Pull Request]
+                if: ${{ inputs.ref == '' }}
+                name: Checkout [Default]
+                with:
+                    # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+                    fetch-depth: 0
+
+            -   uses: actions/checkout@v3
+                if: ${{ inputs.ref != '' }}
+                name: Checkout [${{ inputs.ref }}]
                 with:
                     # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
-                    ref: ${{ github.event.pull_request.head.sha }}
+                    ref: ${{ inputs.ref }}
                     # We need to fetch all branches and commits so that Nx affected has a base to compare against.
                     fetch-depth: 0
 
@@ -65,7 +80,7 @@ jobs:
             -  name: Install dependencies
                run: |
                    echo "Running yarn install --frozen-lockfile"
-                   yarn install --frozen-lockfile
+                   yarn install
                    yarn lerna bootstrap
                env:
                    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
