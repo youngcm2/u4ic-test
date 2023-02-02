@@ -10,6 +10,16 @@
     "plugins": [{
         "type": "node-workspace",
         "updateAllPackages":  true
+    },{
+        "type": "linked-versions",
+        "group-name": "oclif-test",
+        "components": [
+            "@u4ic-test/core",
+            "@u4ic-test/plugin-connector",
+            "@u4ic-test/oclif-test"
+        ]
+    },{
+        "type": "sentence-case"
     }],
     "always-link-local": true,
     "extra-files": [{
@@ -20,7 +30,13 @@
     }],
     "packages": {
         ".": {
-            "component": "@u4ic-test/oclif-test"
+            "component": "oclif-test"
+        },
+        "packages/cli": {
+        },
+        "packages/core": {
+        },
+        "packages/plugin-connector": {
         }
     }
 }
