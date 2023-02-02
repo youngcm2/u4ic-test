@@ -1,5 +1,11 @@
 # Changelog
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @u4ic-test/core bumped from 2.7.0 to 2.8.0
+
 ## [2.7.0](https://github.com/youngcm2/u4ic-test/compare/plugin-connector-v2.6.2...plugin-connector-2.7.0) (2023-02-01)
 
 

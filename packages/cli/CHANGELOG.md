@@ -1,5 +1,12 @@
 # Changelog
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @u4ic-test/core bumped from 2.7.0 to 2.8.0
+    * @u4ic-test/plugin-connector bumped from 2.7.0 to 2.7.1
+
 ## [2.7.0](https://github.com/youngcm2/u4ic-test/compare/oclif-test-2.6.2...oclif-test-2.7.0) (2023-02-01)
 
 
